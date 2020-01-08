@@ -4,13 +4,14 @@
 #
 Name     : perl-Alien-m4
 Version  : 0.17
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.17.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.17.tar.gz
 Summary  : 'Find or build GNU m4'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Alien-m4-license = %{version}-%{release}
+Requires: perl-Alien-m4-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Alien::Build::MM)
 BuildRequires : perl(Capture::Tiny)
@@ -48,8 +49,18 @@ Group: Default
 license components for the perl-Alien-m4 package.
 
 
+%package perl
+Summary: perl components for the perl-Alien-m4 package.
+Group: Default
+Requires: perl-Alien-m4 = %{version}-%{release}
+
+%description perl
+perl components for the perl-Alien-m4 package.
+
+
 %prep
 %setup -q -n Alien-m4-0.17
+cd %{_builddir}/Alien-m4-0.17
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -74,7 +85,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Alien-m4
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Alien-m4/LICENSE
+cp %{_builddir}/Alien-m4-0.17/LICENSE %{buildroot}/usr/share/package-licenses/perl-Alien-m4/f3de9c9b719c6785e72148e6a606dfc96d2d8452
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -87,10 +98,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Alien/m4.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Alien/m4/m4.txt
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alien.json
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alienfile
 
 %files dev
 %defattr(-,root,root,-)
@@ -98,4 +105,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Alien-m4/LICENSE
+/usr/share/package-licenses/perl-Alien-m4/f3de9c9b719c6785e72148e6a606dfc96d2d8452
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Alien/m4.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Alien/m4/m4.txt
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alien.json
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alienfile
