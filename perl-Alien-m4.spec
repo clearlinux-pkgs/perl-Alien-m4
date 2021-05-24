@@ -4,7 +4,7 @@
 #
 Name     : perl-Alien-m4
 Version  : 0.19
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.19.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.19.tar.gz
 Summary  : 'Find or build GNU m4'
