@@ -4,7 +4,7 @@
 #
 Name     : perl-Alien-m4
 Version  : 0.21
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.21.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-m4-0.21.tar.gz
 Summary  : 'Find or build GNU m4'
@@ -109,9 +109,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Alien/m4.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/Alien/m4/m4.txt
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alien.json
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/alienfile
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/patch/01-fix-ftbfs-with-glibc-2.28.patch
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/share/dist/Alien-m4/_alien/patch/secure_snprintf.patch
+/usr/lib/perl5/*
